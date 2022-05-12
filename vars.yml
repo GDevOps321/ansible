@@ -1,0 +1,8 @@
+- name: sample
+  hosts: all
+  vars:
+    url: frooty.com
+  tasks:
+    - name: variables
+      debug:
+        msg: url = {{ url }}
