@@ -18,3 +18,13 @@
           url = {{ url }}
       vars:
         url: avk.com
+# command line -e URL=example
+# tasks
+# vars_file
+# vars_prompt
+# vars
+# inv
+
+    - name: sample 2
+      debug:
+        msg: hostname ={{ ansible_hostname }}
