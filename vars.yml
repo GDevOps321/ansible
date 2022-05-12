@@ -2,6 +2,10 @@
   hosts: all
   vars_files:
     - example.yml
+  vars_prompt:
+    - name: url
+      prompt: ENTER url
+      private: no
   vars:
     url: frooty.com
   tasks:
