@@ -1,6 +1,6 @@
 - name: Demo
   hosts: all
-  become_user: yes
+  become: yes
   tasks:
     - name: apt update
       apt:
