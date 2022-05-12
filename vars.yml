@@ -1,7 +1,7 @@
 - name: sample
   hosts: all
   vars_files:
-    - example.com
+    - example.yml
   vars:
     url: frooty.com
   tasks:
