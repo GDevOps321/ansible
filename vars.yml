@@ -9,6 +9,6 @@
     - name: local variable
       debug:
         msg:
-          SMP = {{ SMP }}
+          url = {{ url }}
       vars:
-        SMP: avk.com
+        url: avk.com
