@@ -7,8 +7,8 @@
       debug:
         msg: url = {{ url }}
     - name: local variable
-      vars:
-        SMP: avk.com
       debug:
         msg:
           SMP = {{ SMP }}
+      vars:
+        SMP: avk.com
