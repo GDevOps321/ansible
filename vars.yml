@@ -1,5 +1,7 @@
 - name: sample
   hosts: all
+  vars_files:
+    - example.com
   vars:
     url: frooty.com
   tasks:
