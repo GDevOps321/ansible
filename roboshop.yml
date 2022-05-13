@@ -7,3 +7,23 @@
         name: nginx
         update_cache: yes
         state: present
+
+    - name: start nginx
+      systemd:
+        state: started
+        name: nginx
+        enabled: yes
+
+    - name: Download file
+      get_url:
+        url: http://172.31.20.130:8081/repository/frontend/frontend-main.zip
+        dest: /etc/frontend-main.zip
+
+    - name: delete the content
+      file:
+        path: /var/www/html
+        state: present
+    - name: delete the content
+        file:
+          path: /var/www/html
+          state: present
