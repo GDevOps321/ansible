@@ -6,10 +6,6 @@
       tags: frontend
       when: COMPONENT == "frontend"
 
-- name: mongodb
-  hosts: all
-  become: yes
-  roles:
     - role: mongodb
       tags: mongodb
       when: COMPONENT == "mongodb"
