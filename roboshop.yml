@@ -17,7 +17,7 @@
     - name: Download file
       get_url:
         url: http://172.31.20.130:8081/repository/frontend/frontend-main.zip
-        dest: /etc/frontend-main.zip
+        dest: /tmp/frontend-main.zip
         username: admin
         password: admin
 
