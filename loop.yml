@@ -1,0 +1,10 @@
+- name: example for loop
+  hosts: all
+  tasks:
+    - name: values
+      debug:
+        msg: " fruit = {{ item}}"
+      loop:
+        - apple
+        - bannana
+        - grape
