@@ -25,6 +25,6 @@
         state: absent
 
     - name: delete the content
-        file:
-          path: /etc/nginx/sites-enabled/default
-          state: absent
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
