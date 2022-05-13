@@ -1,43 +1,5 @@
 - name: Demo
   hosts: all
   become: yes
-  tasks:
-    - name: Install nginx
-      apt:
-        name: nginx
-        update_cache: yes
-        state: present
-
-    - name: Download file
-      get_url:
-        url: http://172.31.20.130:8081/repository/frontend/frontend-main.zip
-        dest: /tmp/frontend-main.zip
-        username: admin
-        password: admin
-
-    - name: delete the content
-      file:
-        path: /var/www/html
-        state: absent
-
-    - name: delete the content
-      file:
-        path: /etc/nginx/sites-enabled/default
-        state: absent
-
-    - name: create a dicrectory
-      file:
-        path: /var/www/html
-        state: directory
-
-    - name: Extract file
-      unarchive:
-        src: /tmp/frontend-main.zip
-        dest: /var/www/html
-        remote_src: yes
-
-    - name: start nginx
-      systemd:
-        state: started
-        name: nginx
-        enabled: yes
+  roles:
+    - frontend
