@@ -3,7 +3,7 @@
   tasks:
     - name: values
       debug:
-        msg: fruit = {{ item }}
+        msg: fruit = {{ list }}
       loop:
         - apple
         - bannana
