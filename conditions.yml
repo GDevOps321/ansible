@@ -1,0 +1,12 @@
+- name: Demo on conditions
+  hosts: all
+  tasks:
+    - name: condition 1
+      debug:
+        msg: krishna
+        when: name == "krishna"
+
+    - name:
+        debug:
+          msg: rama
+          when: name == "rama"
