@@ -4,9 +4,9 @@
     - name: condition 1
       debug:
         msg: krishna
-        when: name == "krishna"
+        when: Name == "krishna"
 
     - name:
       debug:
         msg: rama
-        when: name == "rama"
+        when: Name == "rama"
