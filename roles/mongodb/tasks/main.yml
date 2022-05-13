@@ -1,5 +1,5 @@
 - name: setup mongodb
-  hosts:
+  hosts: all
   tasks:
     - name:
       debug:
