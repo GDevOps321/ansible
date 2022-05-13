@@ -1,6 +1,6 @@
-- name: setup mongodb
+- name: sample
   hosts: all
   tasks:
-    - name: sample
+    - name: text message
       debug:
-        msg: print a message
+        msg:  Hello World
