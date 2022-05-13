@@ -7,6 +7,6 @@
         when: name == "krishna"
 
     - name:
-        debug:
-          msg: rama
-          when: name == "rama"
+      debug:
+        msg: rama
+        hen: name == "rama"
