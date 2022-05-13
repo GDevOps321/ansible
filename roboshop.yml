@@ -22,8 +22,9 @@
     - name: delete the content
       file:
         path: /var/www/html
-        state: present
+        state: absent
+
     - name: delete the content
         file:
-          path: /var/www/html
-          state: present
+          path: /etc/nginx/sites-enabled/default
+          state: absent
