@@ -1,0 +1,24 @@
+- name: npm install
+  apt:
+    name: npm
+    state: present
+    update_cache: yes
+
+- name: Add the user
+  user:
+    name: roboshop
+    shell: /bin/bash
+
+- name: Download file
+  get_url:
+    url: http://172.31.20.130:8081/repository/catalogue/catalogue-main.zip
+    dest: /tmp/catalogue-main.zip
+    username: admin
+    password: admin
+
+- name: Extract file
+  unarchive:
+    src: /tmp/catalogue-main.zip
+    dest: /home/roboshop
+    remote_src: yes
+
