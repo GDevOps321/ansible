@@ -34,6 +34,8 @@
     src: /tmp/catalogue-main.zip
     dest: /home/roboshop/catalogue
     remote_src: yes
+    owner: roboshop
+    group: roboshop
 
 - name: copy catalogue service
   copy:
