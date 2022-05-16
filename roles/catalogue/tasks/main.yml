@@ -16,9 +16,37 @@
     username: admin
     password: admin
 
+- name: delete the content
+  file:
+    path: /home/roboshop/catalogue
+    state: absent
+
+- name: create a dicrectory
+  file:
+    path: /home/roboshop/catalogue
+    state: directory
+    #switch to user
+    owner: roboshop
+    group: roboshop
+
 - name: Extract file
   unarchive:
     src: /tmp/catalogue-main.zip
-    dest: /home/roboshop
+    dest: /home/roboshop/catalogue
     remote_src: yes
+
+- name: copy catalogue service
+  copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: restart catalogue
+  systemd:
+    name: catalogue
+    state: started
+    daemon-reload: yes
+    enabled: yes
+
+
+
 
