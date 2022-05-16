@@ -37,8 +37,7 @@
     remote_src: yes
 
 - name: load schema
-  shell:
-    file: mongo < /tmp/mongodb-main/{{ item }}.js
+  shell: mongo < /tmp/mongodb-main/{{ item }}.js
   loop:
      - users
      - catalogue
