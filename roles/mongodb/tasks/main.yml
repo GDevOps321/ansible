@@ -1,11 +1,11 @@
 - name: Add Mongodb key
   apt_key:
-    url: https://www.mongodb,org/pgp/server-4.4.asc
+    url: https://www.mongodb.org/static/pgp/server-4.4.asc
     state: present
 
 - name: Add mongodb repository
   apt_repository:
-    repo: deb [ arch=am64,arm64] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
+    repo: deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
     state: present
 
 - name: update cache
