@@ -29,15 +29,15 @@
     name: mongod
 
 
-- name: Just ensuring the repo checkout exists
-  git:
-    repo: 'https://github.com/GDevOps321/mongodb.git'
+- name: Download schema
+  unarchive:
+    src: https://github.com/zelar-soft-roboshop/mongodb/archive/main.zip
     dest: /tmp
-
+    remote_src: yes
 
 - name: load schema
   shell:
-    file: mongo < /tmp/mongodb-main/{item}.js
+    file: mongo < /tmp/mongodb-main/{{ item }}.js
     loop:
       - users
       - catalogue
