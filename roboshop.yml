@@ -14,11 +14,5 @@
       tags: catalogue
       when: COMPONENT == "catalogue"
 
-    - role: cart
-      tags: cart
-      when: COMPONENT == "cart"
 
-    - role: user
-      tags: user
-      when: COMPONENT == "user"
 
