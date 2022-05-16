@@ -11,19 +11,19 @@
 
 - name: Download file
   get_url:
-    url: http://172.31.20.130:8081/repository/catalogue/catalogue-main.zip
-    dest: /tmp/catalogue-main.zip
+    url: http://172.31.20.130:8081/repository/user/user-main.zip
+    dest: /tmp/user-main.zip
     username: admin
     password: admin
 
 - name: delete the content
   file:
-    path: /home/roboshop/catalogue
+    path: /home/roboshop/user
     state: absent
 
 - name: create a dicrectory
   file:
-    path: /home/roboshop/catalogue
+    path: /home/roboshop/user
     state: directory
     #switch to user
     owner: roboshop
@@ -31,20 +31,20 @@
 
 - name: Extract file
   unarchive:
-    src: /tmp/catalogue-main.zip
-    dest: /home/roboshop/catalogue
+    src: /tmp/user-main.zip
+    dest: /home/roboshop/user
     remote_src: yes
     owner: roboshop
     group: roboshop
 
-- name: copy catalogue service
+- name: copy user service
   copy:
-    src: cart.service
-    dest: /etc/systemd/system/cart.service
+    src: user.service
+    dest: /etc/systemd/system/user.service
 
-- name: restart catalogue
+- name: restart user
   systemd:
-    name: catalogue
+    name: user
     state: started
     daemon-reload: yes
     enabled: yes
