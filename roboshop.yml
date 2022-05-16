@@ -14,5 +14,8 @@
       tags: catalogue
       when: COMPONENT == "catalogue"
 
+    - role: redis
+      tags: redis
+      when: COMPONENT == "redis"
 
 
