@@ -16,3 +16,27 @@
   apt:
     name: mongodb-org
     state: present
+
+- name: update mongodb conf file
+  replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: 0.0.0.0
+
+- name: restart mongodb
+  systemd:
+    state: started
+    name: mongodb
+
+- name: Download schema
+  unarchive:
+    src: https://github.com/zelar-soft-roboshop/mongodb/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: load schema
+  shell:
+    file: mongo < /tmp/mongodb-main/{item}.js
+    loop:
+      - users
+      - catalogue
