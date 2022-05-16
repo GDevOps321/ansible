@@ -23,10 +23,10 @@
     regexp: '127.0.0.1'
     replace: 0.0.0.0
 
-- name: restart mongodb
+- name: Make sure a service unit is running
   systemd:
-    name: mongodb
     state: started
+    name: mongod
 
 
 - name: Download schema
