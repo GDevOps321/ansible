@@ -39,8 +39,8 @@
 
 - name: copy catalogue service
   copy:
-    src: cart.service
-    dest: /etc/systemd/system/cart.service
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
 
 - name: restart catalogue
   systemd:
