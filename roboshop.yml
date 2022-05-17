@@ -30,4 +30,8 @@
       tags: mysql
       when: COMPONENT == "mysql"
 
+    - role: shipping
+      tags: shipping
+      when: COMPONENT == "shipping"
+
 
