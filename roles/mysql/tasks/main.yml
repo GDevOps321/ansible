@@ -1,11 +1,27 @@
+- name: check the status of the docker
+  shell: systemctl status docker
+  register: out
+
 - name: install docker
   shell : curl -s get.docker.com | bash
+  when: out.rc !=0
 
 - name: start docker
   systemd:
     name: docker
     state: started
     enabled: yes
+
+- name: install python
+  apt:
+    name: python3-pip
+    state: present
+    update_cache: yes
+
+- name: install pip3 docker module
+  pip:
+    name: docker
+    executable: pip3
 
 - name: create the directory
   file:
@@ -22,3 +38,5 @@
       - "3306:3306"
     env:
       - MYSQL_ROOT_PASSWORD: "password"
+
+
