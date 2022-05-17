@@ -36,6 +36,7 @@
     dest: /tmp
     remote_src: yes
 
+
 - name: load schema
   shell: mongo < /tmp/mongodb-main/{{ item }}.js
   loop:
