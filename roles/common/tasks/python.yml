@@ -1,0 +1,30 @@
+- name: install pip3
+  apt:
+    name: python3-pip
+    state: present
+    update_cache: yes
+
+- name: download artifacts from nexus
+  include_tasks: download_nexus.yml
+
+- name: install python dependices
+  pip:
+    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    executable: pip3
+
+- name: Update UID in {{COMPONENT}} Config
+  lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^uid'
+    line: uid = {{roboshop_user_info.uid}}
+
+
+- name: Update GID in {{COMPONENT}} Config
+  lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^gid'
+    line: gid = {{roboshop_user_info.group}}
+
+
+- name: download artifacts from nexus
+  include_tasks: services.yml

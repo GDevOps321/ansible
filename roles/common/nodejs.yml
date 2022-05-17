@@ -9,7 +9,7 @@
 
 
 - name: download artifacts from nexus
-  include_tasks: download_nexus.yml
+  include_tasks: services.yml
 
 
 
