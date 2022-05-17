@@ -1,0 +1,11 @@
+- name: copy {{COMPONENT}} service
+  copy:
+    src: {{COMPONENT}}.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: restart {{COMPONENT}}
+  systemd:
+    name: {{COMPONENT}}
+    state: started
+    daemon-reload: yes
+    enabled: yes

@@ -1,0 +1,32 @@
+- name: Add the user
+  user:
+    name: roboshop
+    shell: /bin/bash
+
+- name: Download file
+  get_url:
+    url: http://172.31.20.130:8081/repository/{{COMPONENT}}/{{COMPONENT}}-main.zip
+    dest: /tmp/{{COMPONENT}}-main.zip
+    username: admin
+    password: admin
+
+- name: delete the content
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
+- name: create a dicrectory
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
+    #switch to user
+    owner: roboshop
+    group: roboshop
+
+- name: Extract file
+  unarchive:
+    src: /tmp/{{COMPONENT}}-main.zip
+    dest: /home/roboshop/{{COMPONENT}}
+    remote_src: yes
+    owner: roboshop
+    group: roboshop

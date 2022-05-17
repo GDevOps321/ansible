@@ -39,4 +39,26 @@
     env:
       - MYSQL_ROOT_PASSWORD: "password"
 
+- name: Download schema
+  unarchive:
+    src: https://github.com/GDevOps321/mysql/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: install mysql client
+  apt:
+    name: mysql-client-core-8.0
+    state: present
+
+- name: load schema
+  mysql_db:
+    name: all
+    state: import
+    target: /tmp/mysql-main/shipping.sql
+    login_host: "{{ ansible_default_ipv4.adress}}"
+    login_user: root
+    login_password: password
+
+
+
 

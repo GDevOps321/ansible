@@ -1,16 +1,11 @@
-- name: npm install
+- name: install maven
   apt:
-    name: npm
+    name: maven
     state: present
     update_cache: yes
 
 - name: download artifacts from nexus
   include_tasks: download_nexus.yml
 
-
 - name: download artifacts from nexus
   include_tasks: download_nexus.yml
-
-
-
-
